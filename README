@@ -10,3 +10,27 @@ Ubuntu 12.04 and later
 $ sudo apt-get install mosh
 ```
 The [ppa:keithw/mosh-dev](https://launchpad.net/~keithw/+archive/ubuntu/mosh-dev) PPA tracks the development version of Mosh.
+
+
+## Firewall Configuration
+If you have a firewall configured on your VPS (recommended), you will also need to open the extra ports Mosh requires.
+
+If you are using iptables directly, the following command will open the ports that Mosh requires:
+
+```
+sudo iptables -I INPUT 1 -p udp --dport 60000:61000 -j ACCEPT
+```
+
+Remember that, by default, this firewall setting will not be retained after a system reboot. Solutions such as iptables-persistant exist to augment this behavior.
+
+If you are using UFW, you can open the ports with the following:
+
+```
+sudo ufw allow 60000:61000/udp
+```
+
+If you are using any other program to manage your firewall, then you will need to manually ensure to open the UDP ports from 60000 to 61000. However, if you only expect to have a small number of concurrent connections, then a smaller range of ports can be opened provided it begins at port 60000 (e.g 60000:60020).
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-mosh-on-a-vps
+
+
