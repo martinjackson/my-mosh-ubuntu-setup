@@ -1,0 +1,12 @@
+This collection of notes encompass development setup on
+- an iPad (WorkingCopy & Blink) 
+- the Ubuntu (mosh)  
+
+
+[mosh from MIT](https://mosh.org/)
+
+Ubuntu 12.04 and later
+```
+$ sudo apt-get install mosh
+```
+The [ppa:keithw/mosh-dev](https://launchpad.net/~keithw/+archive/ubuntu/mosh-dev) PPA tracks the development version of Mosh.
